@@ -1,0 +1,29 @@
+.wrapper {
+  &.large {
+    svg {
+      height: 24px;
+      width: 24px;
+    }
+
+    :global {
+      .ant-input-clear-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          height: 20px !important;
+          width: 20px !important;
+        }
+      }
+    }
+  }
+
+  :global {
+    .ant-input-clear-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
