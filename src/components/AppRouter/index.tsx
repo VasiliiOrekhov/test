@@ -1,12 +1,14 @@
 // import { Login } from 'pages/Login';
-import Main from 'pages/Main';
 // import { Menu } from 'pages/Menu';
 // import { Profile } from 'pages/Profile';
 // import { Route, Routes } from 'react-router-dom';
 
+// import { MainPage } from 'pages/Main';
+import { Pages } from 'pages/pages';
+
 export const AppRouter = () => {
   return (
-    <Main />
+    <Pages />
     // <Routes>
     //   <Route>
     //     <Route path="login" element={<Login />} />

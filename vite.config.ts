@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       components: '/src/components',
       pages: '/src/pages',
+      routes: '/src/routes',
       assets: '/src/assets',
       store: '/src/store',
       utils: '/src/utils',

@@ -7,7 +7,7 @@ import { TUser } from 'store/services/userService/models';
 import { useGetUserQuery } from 'store/services/userService/userApiService';
 import { profileInputs } from './constants';
 
-export const Profile: React.FC = () => {
+export const ProfilePage: React.FC = () => {
   const { data } = useGetUserQuery();
   const navigate = useNavigate();
   const [updateProfile] = useChangeUserMutation();

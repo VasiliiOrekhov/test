@@ -2,10 +2,10 @@ import { Menu } from 'antd';
 import { FC } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import s from './main.module.scss';
-import { Profile } from 'pages/Profile';
+import { ProfilePage } from 'pages/Profile';
 import { MenuPage } from 'pages/Menu';
 
-const Main: FC = () => {
+export const MainPage: FC = () => {
   const navigate = useNavigate();
   return (
     <div className={s.wrapper}>
@@ -35,12 +35,10 @@ const Content: FC = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<MenuPage />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/logout" element={<div>LogOut</div>} />
+        <Route path="/main/menu" element={<MenuPage />} />
+        <Route path="/main/profile" element={<ProfilePage />} />
+        <Route path="/main/logout" element={<div>LogOut</div>} />
       </Routes>
     </div>
   );
 };
-
-export default Main;

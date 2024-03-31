@@ -37,7 +37,8 @@
       "assets/*": ["assets/*"],
       "utils/*": ["utils/*"],
       "constants/*": ["constants/*"],
-      "containers/*": ["containers/*"]
+      "containers/*": ["containers/*"],
+      "routes/*": ["routes/*"]
     }
   },
   "include": ["src"],
