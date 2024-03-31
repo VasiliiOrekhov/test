@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Button, Form, type FormProps, Input } from 'antd';
 import { formRules } from 'utils/formRules';
-import { useSingInMutation } from 'store/services/userService/userApiService';
 import { useNavigate } from 'react-router-dom';
+import { useSingInMutation } from 'store/services/authService/authService';
 
 type FieldType = {
   login: string;
@@ -11,15 +11,16 @@ type FieldType = {
 };
 
 export const Login: React.FC = () => {
-  const [error, setError] = useState<string>('');
   const navigate = useNavigate();
-  const [login] = useSingInMutation();
+  const [login, { error: loginError }] = useSingInMutation();
   const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
     try {
-      await login(values).unwrap();
+      const response = await login(values).unwrap();
+      localStorage.setItem('access', response.access);
+      localStorage.setItem('refresh', response.refresh);
       navigate('/menu');
     } catch (error) {
-      setError(JSON.parse(error.data).reason);
+      console.log(loginError);
     }
   };
 
@@ -49,7 +50,6 @@ export const Login: React.FC = () => {
         rules={[formRules.required, formRules.password]}>
         <Input.Password />
       </Form.Item>
-      {error && <h5>{error}</h5>}
 
       <Button type="primary" htmlType="submit">
         Submit

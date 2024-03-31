@@ -18,3 +18,10 @@ export type TSignInResponse = {
   access: string;
   refresh: string;
 };
+
+export type TRefreshResponse = {
+  access: string;
+};
+export type TRefreshRequest = {
+  refresh: string;
+};

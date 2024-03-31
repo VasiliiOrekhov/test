@@ -1,19 +1,19 @@
-import { initialApiService } from '../initialApiService';
-import { TSignInRequest, TSignInResponse } from './models';
+import { initialApiServiceAuth } from '../initialApiServiceAuth';
+import { TRefreshRequest, TRefreshResponse, TSignInRequest, TSignInResponse } from './models';
 
-const authApiService = initialApiService.injectEndpoints({
+const authApiService = initialApiServiceAuth.injectEndpoints({
   endpoints: (build) => ({
     singIn: build.mutation<TSignInResponse, TSignInRequest>({
       query: (signInData) => ({
-        url: 'login',
+        url: '/auth/token/login/',
         method: 'POST',
         body: signInData,
       }),
     }),
-    resfesh: build.mutation<string, void>({
-      query: () => ({ url: 'refresh', method: 'POST' }),
+    resfesh: build.mutation<TRefreshResponse, TRefreshRequest>({
+      query: (refresh) => ({ url: '/auth/token/refresh', method: 'POST', body: refresh }),
     }),
   }),
 });
 
-export const { useSingInMutation, useLogoutMutation } = authApiService;
+export const { useSingInMutation, useResfeshMutation } = authApiService;
