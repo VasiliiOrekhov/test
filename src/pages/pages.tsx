@@ -30,7 +30,6 @@ export const Pages: FC = () => {
     ACTIONS.MAINCHILDREN2,
     ACTIONS.MENU,
   ];
-
   const routes = initRoutes(true, roles as ACTIONS[]).map(renderRoutes);
   console.log(routes);
 

@@ -31,7 +31,7 @@ export const mainRoutes: RouteConfig[] = [
           {
             path: MAIN_ROUTE_CHILDREN1_CH2,
             element: <div>child 22222222222</div>,
-            roles: [ACTIONS.MAINCHILDREN1],
+            roles: [ACTIONS.MAINCHILDREN3],
           },
         ],
       },

@@ -24,6 +24,7 @@ export const initRoutes = (isAuth: boolean, roles?: string[]) => {
   if (isAuth) {
     const routes: RouteConfig[] = [];
     const userHasNecessaryRole = (item: RouteConfig): boolean => {
+      console.log(item);
       return !!item.roles?.some((role: `${ACTIONS}`) => {
         return roles?.includes(role);
       });
