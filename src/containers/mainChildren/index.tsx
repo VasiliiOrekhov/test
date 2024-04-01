@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import s from './main.module.scss';
 
-export const MainPage: FC = () => {
+export const MainChildren: FC = () => {
   const navigate = useNavigate();
   return (
     <div className={s.wrapper}>
@@ -13,8 +13,8 @@ export const MainPage: FC = () => {
         }}
         defaultSelectedKeys={[window.location.pathname]}
         items={[
-          { label: 'Children1', key: '/main/children1' },
-          { label: 'Children2', key: '/main/children2' },
+          { label: 'Child1', key: '/main/children1/ch1' },
+          { label: 'Child2', key: '/main/children1/ch2' },
         ]}></Menu>
       <Content />
     </div>

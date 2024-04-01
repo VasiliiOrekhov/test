@@ -1,14 +1,17 @@
 import { ACTIONS } from 'constants/actions';
-import { Navigate, RouteObject } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { LOGIN_ROUTE } from './login/list';
 import { loginRoutes } from './login/config';
 import { menuRoutes } from './menu/config';
 import { mainRoutes } from './main/config';
 import { profileRoutes } from './profile/config';
 
-export type RouteConfig = RouteObject & {
+export type RouteConfig = {
+  path: string;
+  element: React.ReactNode;
   children?: RouteConfig[];
-  roles?: ACTIONS[];
+  roles?: `${ACTIONS}`[];
+  id?: string;
 };
 
 export const UNKNOWN_ROUTE = '*';
@@ -19,10 +22,9 @@ export const ERROR_NONE_AUTH_ROUTE = '/error';
 
 export const initRoutes = (isAuth: boolean, roles?: string[]) => {
   if (isAuth) {
-    const routes: RouteObject[] = [];
+    const routes: RouteConfig[] = [];
     const userHasNecessaryRole = (item: RouteConfig): boolean => {
-      return !!item.roles?.some((role: ACTIONS) => {
-        console.log(role, roles);
+      return !!item.roles?.some((role: `${ACTIONS}`) => {
         return roles?.includes(role);
       });
     };
