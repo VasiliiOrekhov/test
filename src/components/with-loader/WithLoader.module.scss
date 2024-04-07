@@ -1,0 +1,12 @@
+.loaderWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+
+  > div {
+    width: 45px;
+    height: 45px;
+  }
+}

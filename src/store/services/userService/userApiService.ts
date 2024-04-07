@@ -16,6 +16,9 @@ const authApiService = initialApiService.injectEndpoints({
         responseHandler: 'text',
       }),
     }),
+    getActions: build.query<string[], void>({
+      query: () => ({ url: 'auth/actions', method: 'GET' }),
+    }),
     logout: build.mutation<string, void>({
       query: () => ({ url: 'auth/logout', method: 'POST', responseHandler: 'text' }),
     }),
