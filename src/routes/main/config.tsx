@@ -10,6 +10,7 @@ import {
 import { ACTIONS } from 'constants/actions';
 import { MainPage } from 'pages/Main';
 import { MainChildren } from 'containers/mainChildren';
+import { WithPagination } from 'pages/Pagination/Pagination';
 
 export const mainRoutes: RouteConfig[] = [
   {
@@ -37,7 +38,7 @@ export const mainRoutes: RouteConfig[] = [
       },
       {
         path: MAIN_ROUTE_CHILDREN2,
-        element: <div>MAINCHILDREN2</div>,
+        element: <WithPagination />,
         roles: [ACTIONS.MAINCHILDREN2],
       },
     ],
